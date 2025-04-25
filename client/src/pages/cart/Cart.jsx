@@ -21,7 +21,7 @@ function Cart() {
             Authorization: `Bearer ${token}`, 
           },
         });
-        console.log("this is response", response)
+        console.log("this is response", response.data[0].productId)
         setCartItems(response.data);
         setLoading(false);
       } catch (error) {
@@ -46,8 +46,7 @@ function Cart() {
   };
 
   const calculateTotal = () => {
-    const subtotal = cartItems.reduce((acc, item) => acc + (item.quantity * item.price), 0);
-    console.log("this is subtotal", subtotal);
+    const subtotal = cartItems.reduce((acc, item) => acc + (item.quantity * item.productId.price), 0);
     const shipping = 20; 
     return { subtotal, shipping, total: subtotal + shipping };
   };
@@ -66,12 +65,12 @@ function Cart() {
               cartItems.map(item => (
                 <div key={item._id} className="justify-between mb-6 rounded-lg border drop-shadow-xl bg-white p-6 sm:flex sm:justify-start"
                   style={{ backgroundColor: mode === 'dark' ? 'rgb(32 33 34)' : '', color: mode === 'dark' ? 'white' : '' }}>
-                  <img src={item.productImage || 'https://dummyimage.com/400x400'} alt="product-image" className="w-full rounded-lg sm:w-40" />
+                  <img src={item.productId.thumbnail || 'https://dummyimage.com/400x400'} alt="product-image" className="w-full rounded-lg sm:w-40" />
                   <div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
                     <div className="mt-5 sm:mt-0">
-                      <h2 className="text-lg font-bold text-gray-900" style={{ color: mode === 'dark' ? 'white' : '' }}>{item.productTitle}</h2>
+                      <h2 className="text-lg font-bold text-gray-900" style={{ color: mode === 'dark' ? 'white' : '' }}>{item.productId.title}</h2>
                       <h2 className="text-sm text-gray-900" style={{ color: mode === 'dark' ? 'white' : '' }}>{item.productDesc}</h2>
-                      <p className="mt-1 text-xs font-semibold text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>₹{item.price}</p>
+                      <p className="mt-1 text-xs font-semibold text-gray-700" style={{ color: mode === 'dark' ? 'white' : '' }}>₹{item.productId.price}</p>
                     </div>
                     <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                       <button onClick={() => handleRemoveItem(item._id)} className="text-red-600">
