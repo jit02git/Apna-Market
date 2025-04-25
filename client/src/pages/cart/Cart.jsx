@@ -21,6 +21,7 @@ function Cart() {
             Authorization: `Bearer ${token}`, 
           },
         });
+        console.log("this is response", response)
         setCartItems(response.data);
         setLoading(false);
       } catch (error) {
@@ -46,6 +47,7 @@ function Cart() {
 
   const calculateTotal = () => {
     const subtotal = cartItems.reduce((acc, item) => acc + (item.quantity * item.price), 0);
+    console.log("this is subtotal", subtotal);
     const shipping = 20; 
     return { subtotal, shipping, total: subtotal + shipping };
   };
