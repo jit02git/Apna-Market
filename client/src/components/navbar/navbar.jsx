@@ -61,7 +61,7 @@ export default function Navbar() {
                 </div>
                 <div className="space-y-6 border-t border-gray-200 px-4 py-6">
 
-                  <Link to={'/allproducts'} className="text-sm font-medium text-gray-900 " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                  <Link to={'/'} className="text-sm font-medium text-gray-900 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     All Products
                   </Link>
                   <div className="flow-root">
@@ -140,7 +140,7 @@ export default function Navbar() {
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
 
-                  <Link to={'/allproducts'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
+                  <Link to={'/'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
                     All Products
                   </Link>
                   <Link to={'/order'} className="text-sm font-medium text-gray-700 " style={{ color: mode === 'dark' ? 'white' : '', }}>
