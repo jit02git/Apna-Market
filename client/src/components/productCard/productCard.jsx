@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from "react";
 import myContext from "../../context/data/myContext";
 import axios from "axios";
@@ -36,7 +37,7 @@ function ProductCard() {
       alert("Item added to cart!");
     } catch (error) {
       console.error("Failed to add item to cart:", error);
-      alert("Something went wrong while adding to cart.");
+      alert("Please login your account.");
     }
   };
 
@@ -77,12 +78,12 @@ function ProductCard() {
                   >
                     {item.brand}
                   </h2>
-                  <h1
+                  <h1add
                     className="title-font text-lg font-medium text-gray-900 mb-3"
                     style={{ color: mode === "dark" ? "white" : "" }}
                   >
                     {item.title}
-                  </h1>
+                  </h1add>
                   <p
                     className="leading-relaxed mb-3"
                     style={{ color: mode === "dark" ? "white" : "" }}
