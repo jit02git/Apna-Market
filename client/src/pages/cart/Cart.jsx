@@ -98,8 +98,8 @@ function Cart() {
               <p className="text-lg font-bold" style={{ color: mode === 'dark' ? 'white' : '' }}>Total</p>
               <p className="mb-1 text-lg font-bold" style={{ color: mode === 'dark' ? 'white' : '' }}>₹{total}</p>
             </div>
-            <Modal />
-          </div>
+            <Modal cartItems={cartItems} clearCart={() => setCartItems([])} />
+            </div>
         </div>
       </div>
     </Layout>
