@@ -65,4 +65,14 @@ export const updateCategory = async (req, res) => {
     }
   };
   
+  // Delete Category
+export const deleteCategory = async (req, res) => {
+    try {
+      const deleted = await Category.findByIdAndDelete(req.params.id);
+      if (!deleted) return res.status(404).json({ message: "Not found" });
+      res.json({ message: "Category deleted" });
+    } catch (error) {
+      res.status(500).json({ message: "Server error", error });
+    }
+  };
   
