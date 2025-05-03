@@ -32,4 +32,16 @@ export const getAllCategories = async (req, res) => {
       res.status(500).json({ message: "Server error", error });
     }
   };
+
+  
+  // Get Single Category
+export const getCategoryById = async (req, res) => {
+    try {
+      const category = await Category.findById(req.params.id);
+      if (!category) return res.status(404).json({ message: "Not found" });
+      res.json(category);
+    } catch (error) {
+      res.status(500).json({ message: "Server error", error });
+    }
+  };
   
