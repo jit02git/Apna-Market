@@ -22,3 +22,14 @@ export const createCategory = async (req, res) => {
     res.status(500).json({ message: "Server error", error });
   }
 };
+
+// Get All Categories
+export const getAllCategories = async (req, res) => {
+    try {
+      const categories = await Category.find().sort({ createdAt: -1 });
+      res.json(categories);
+    } catch (error) {
+      res.status(500).json({ message: "Server error", error });
+    }
+  };
+  
