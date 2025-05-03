@@ -65,11 +65,7 @@ function ProductCard() {
                 }}
               >
                 <div className="flex justify-center cursor-pointer">
-                  <img
-                    className="rounded-2xl w-full h-80 p-2 hover:scale-110 transition-transform duration-300 ease-in-out"
-                    src={item.thumbnail}
-                    alt={item.title}
-                  />
+                  <img className="rounded-2xl w-full h-80 p-2 hover:scale-110 transition-transform duration-300 ease-in-out" src={item.thumbnail} alt={item.title}/>
                 </div>
                 <div className="p-5 border-t-2">
                   <h2
@@ -91,11 +87,7 @@ function ProductCard() {
                     ₹ {item.price}
                   </p>
                   <div className="flex justify-center">
-                    <button
-                      type="button"
-                      className="focus:outline-none text-white bg-pink-600 hover:bg-pink-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full py-2"
-                      onClick={() => handleAddToCart(item._id)}
-                    >
+                    <button type="button" className="focus:outline-none text-white bg-pink-600 hover:bg-pink-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm w-full py-2" onClick={() => handleAddToCart(item._id)}>
                       Add To Cart
                     </button>
                   </div>
