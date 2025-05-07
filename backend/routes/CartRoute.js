@@ -1,11 +1,13 @@
-const express = require('express');
-const {
+import express from 'express';
+import {
   getCart,
   addToCart,
   removeFromCart,
   clearCart
-} = require('../controllers/CartController');
-const auth = require('../middlewares/authMiddleware');
+} from '../controllers/CartController.js';
+
+import auth from '../middlewares/authMiddleware.js';
+
 const router = express.Router();
 
 router.get('/', auth, getCart);

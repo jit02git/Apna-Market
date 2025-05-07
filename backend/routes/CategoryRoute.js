@@ -1,4 +1,4 @@
-const express = require("express");
+import express from "express";
 import {
   createCategory,
   getAllCategories,
@@ -7,6 +7,7 @@ import {
   deleteCategory,
 } from "../controllers/CategoryController.js";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
+
 
 const router = express.Router();
 

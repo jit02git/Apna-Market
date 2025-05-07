@@ -1,7 +1,15 @@
-const express = require('express');
-const { getProducts, getProductById, createProduct, updateProduct, deleteProduct } = require('../controllers/ProductController');
-const auth = require('../middlewares/authMiddleware');
-const role = require('../middlewares/roleMiddleware');
+import express from 'express';
+import {
+  getProducts,
+  getProductById,
+  createProduct,
+  updateProduct,
+  deleteProduct
+} from '../controllers/ProductController.js';
+
+import auth from '../middlewares/authMiddleware.js';
+import role from '../middlewares/roleMiddleware.js';
+
 const router = express.Router();
 
 router.get('/', getProducts);

@@ -1,13 +1,15 @@
-const express = require('express');
-const {
+import express from 'express';
+import {
   placeOrder,
   getUserOrders,
   getOrderById,
   getAllOrders,
   updateOrderStatus
-} = require('../controllers/OrderController');
-const auth = require('../middlewares/authMiddleware');
-const role = require('../middlewares/roleMiddleware');
+} from '../controllers/OrderController.js';
+
+import auth from '../middlewares/authMiddleware.js';
+import role from '../middlewares/roleMiddleware.js';
+
 const router = express.Router();
 
 router.post('/', auth, placeOrder);
