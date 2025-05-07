@@ -1,4 +1,5 @@
-const CartItem = require('../models/CartItem');
+// const CartItem = require('../models/CartItem');
+import CartItem from '../models/CartItem'
 
 exports.getCart = async (req, res) => {
   const cart = await CartItem.find({ userId: req.user._id }).populate('productId');

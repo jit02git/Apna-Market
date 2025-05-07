@@ -1,13 +1,12 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const connectDB = require("./config/db");
-const authRoutes = require("./routes/AuthRoute");
-const categoryRoutes = require("./routes/CategoryRoute");
-const productRoutes = require("./routes/ProductRoute");
-const orderRoutes = require("./routes/OrderRoute");
-const cartRoutes = require("./routes/CartRoute");
-const cors = require("cors");
-const app = express();
+import express from "express";
+import dotenv from "dotenv";
+import connectDB from "./config/db.js";
+import authRoutes from "./routes/AuthRoute.js";
+import categoryRoutes from "./routes/CategoryRoute.js";
+import productRoutes from "./routes/ProductRoute.js";
+import orderRoutes from "./routes/OrderRoute.js";
+import cartRoutes from "./routes/CartRoute.js";
+import cors from "cors";
 
 dotenv.config();
 connectDB();
