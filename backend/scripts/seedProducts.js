@@ -1,7 +1,8 @@
-const dotenv = require('dotenv');
-const connectDB = require('../config/db');
-const Product = require('../models/Product');
-const products = require('../scripts/product'); 
+import dotenv from 'dotenv';
+import connectDB from '../config/db.js';
+import Product from '../models/Product.js';
+import products from '../scripts/product.js';
+
 
 dotenv.config();
 
