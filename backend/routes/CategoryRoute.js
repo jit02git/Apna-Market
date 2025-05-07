@@ -8,7 +8,6 @@ import {
 } from "../controllers/CategoryController.js";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 
-
 const router = express.Router();
 
 // Public

@@ -1,5 +1,4 @@
-// const Order = require('../models/Order');
-import Order from '../models/Order'
+import Order from '../models/Order.js'
 
 exports.placeOrder = async (req, res) => {
   try {

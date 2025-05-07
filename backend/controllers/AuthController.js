@@ -3,8 +3,7 @@ import bcrypt from 'bcryptjs';
 import User from '../models/User.js';
 import generateToken from '../utils/generateToken.js';
 
-
-exports.register = async (req, res) => {
+export const register = async (req, res) => {
   const { name, email, password } = req.body;
   try {
     const existing = await User.findOne({ email });
@@ -12,13 +11,14 @@ exports.register = async (req, res) => {
 
     const hashed = await bcrypt.hash(password, 10);
     const user = await User.create({ name, email, passwordHash: hashed });
+
     res.status(201).json({ token: generateToken(user._id, user.role) });
   } catch (err) {
     res.status(500).json({ msg: 'Server error' });
   }
 };
 
-exports.login = async (req, res) => {
+export const login = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email });
