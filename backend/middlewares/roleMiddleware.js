@@ -6,4 +6,4 @@ const roleMiddleware = (role) => {
       next();
     };
   };
-  module.exports = roleMiddleware;
+  export default roleMiddleware;

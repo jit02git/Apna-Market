@@ -5,7 +5,8 @@ import {
   createProduct,
   updateProduct,
   deleteProduct
-} from '../controllers/ProductController.js';
+} from '../controllers/productController.js';
+
 
 import auth from '../middlewares/authMiddleware.js';
 import role from '../middlewares/roleMiddleware.js';
@@ -17,4 +18,5 @@ router.get('/:id', getProductById);
 router.post('/', auth, role('admin'), createProduct);
 router.put('/:id', auth, role('admin'), updateProduct);
 router.delete('/:id', auth, role('admin'), deleteProduct);
-module.exports = router;
+
+export default router;

@@ -7,6 +7,7 @@ import {
   updateOrderStatus
 } from '../controllers/OrderController.js';
 
+
 import auth from '../middlewares/authMiddleware.js';
 import role from '../middlewares/roleMiddleware.js';
 
@@ -17,4 +18,5 @@ router.get('/', auth, getUserOrders);
 router.get('/:id', auth, getOrderById);
 router.get('/admin/all', auth, role('admin'), getAllOrders);
 router.put('/admin/:id', auth, role('admin'), updateOrderStatus);
-module.exports = router;
+
+export default router;

@@ -1,11 +1,11 @@
-import CartItem from '../models/CartItem.js'
+import CartItem from '../models/CartItem.js';
 
-exports.getCart = async (req, res) => {
+export const getCart = async (req, res) => {
   const cart = await CartItem.find({ userId: req.user._id }).populate('productId');
   res.json(cart);
 };
 
-exports.addToCart = async (req, res) => {
+export const addToCart = async (req, res) => {
   const { productId, quantity } = req.body;
   const existing = await CartItem.findOneAndUpdate(
     { userId: req.user._id, productId },
@@ -15,12 +15,12 @@ exports.addToCart = async (req, res) => {
   res.json(existing);
 };
 
-exports.removeFromCart = async (req, res) => {
+export const removeFromCart = async (req, res) => {
   await CartItem.findOneAndDelete({ _id: req.params.itemId, userId: req.user._id });
   res.json({ msg: 'Item removed' });
 };
 
-exports.clearCart = async (req, res) => {
+export const clearCart = async (req, res) => {
   await CartItem.deleteMany({ userId: req.user._id });
   res.json({ msg: 'Cart cleared' });
 };

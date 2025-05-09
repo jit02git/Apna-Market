@@ -1,6 +1,6 @@
 import Order from '../models/Order.js'
 
-exports.placeOrder = async (req, res) => {
+export const placeOrder = async (req, res) => {
   try {
     const { products, shippingAddress, fullName, pincode, mobileNumber } = req.body;
     const order = new Order({
@@ -19,22 +19,23 @@ exports.placeOrder = async (req, res) => {
 }
 };
 
-exports.getUserOrders = async (req, res) => {
+export const getUserOrders = async (req, res) => {
   const orders = await Order.find({ userId: req.user._id });
   res.json(orders);
 };
 
-exports.getOrderById = async (req, res) => {
+export const getOrderById = async (req, res) => {
   const order = await Order.findById(req.params.id);
   res.json(order);
 };
 
-exports.getAllOrders = async (req, res) => {
+export const getAllOrders = async (req, res) => {
   const orders = await Order.find();
   res.json(orders);
 };
 
-exports.updateOrderStatus = async (req, res) => {
+
+export const updateOrderStatus = async (req, res) => {
   const order = await Order.findByIdAndUpdate(req.params.id, { status: req.body.status }, { new: true });
   res.json(order);
 };
