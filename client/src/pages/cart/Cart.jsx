@@ -13,6 +13,7 @@ function Cart() {
   const [loading, setLoading] = useState(true);
 
   const token = localStorage.getItem('token'); 
+  
   useEffect(() => {
     const fetchCartItems = async () => {
       try {
