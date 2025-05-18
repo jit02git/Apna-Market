@@ -13,15 +13,15 @@ export const getProductById = async (req, res) => {
 export const createProduct = async (req, res) => {
   const product = new Product(req.body);
   await product.save();
-  res.status(201).json(product);
+  res.status(201).json(product, {msg:"product created successfully"});
 };
 
 export const updateProduct = async (req, res) => {
   const updated = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
-  res.json(updated);
+  res.json(updated, {msg:'Update product successfully'});
 };
 
 export const deleteProduct = async (req, res) => {
   await Product.findByIdAndDelete(req.params.id);
-  res.json({ msg: 'Product deleted' });
+  res.json({ msg: 'Product deleted successfully' });
 };
